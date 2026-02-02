@@ -2,3 +2,5 @@
 .idea
 source/*
 result/*
+build
+dist
