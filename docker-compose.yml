@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    image: doc-to-docx:py312
+    volumes:
+      # Монтируем текущую папку — доступ к исходникам, результатам и лицензии
+      - .:/app
+    working_dir: /app
+    # Переменная для пути к лицензии Aspose (опционально)
+    environment:
+      - ASPOSE_LICENSE_PATH=${ASPOSE_LICENSE_PATH:-/app/license.lic}
+    # Без команды — показываем справку (использование)
+    command: []
+    stdin_open: true
+    tty: true
